@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const User = require('../models/user-model');
+const { registerUser , loginUser ,logoutUser} = require("../controllers/authController");
 
 // Get all users
-router.get('/', async (req, res) => {
-    try {
-        const users = await User.find();
-        res.status(200).json(users);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+router.get("/", async (req, res) => {
+  res.render("index");
 });
+
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+
+router.get("/logout", logoutUser);
 
 module.exports = router;

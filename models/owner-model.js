@@ -1,9 +1,15 @@
 const mongoose = require("mongoose");
 
 const ownerSchema = mongoose.Schema({
-  fullname: String,
-  email: String,
-  password: String,
+  fullname: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
+  password: {
+    type: String,
+  },
   products: {
     type: Array,
     default: [],

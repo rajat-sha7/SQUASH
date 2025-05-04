@@ -1,9 +1,9 @@
 {
   "name": "scatch",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start":"nodemon index.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "rajat sharma",
@@ -11,8 +11,14 @@
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "config": "^3.3.12",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
+    "debug": "^4.4.0",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.14.0",
     "multer": "^1.4.5-lts.2"

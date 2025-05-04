@@ -1,20 +1,28 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  fullname: String,
-  email: String,
-  password: String,
+mongoose.connect("mongodb://127.0.0.1:27017/squash");
+
+const userSchema = mongoose.Schema({
+  fullname: {
+    type: String,
+    trim: true,
+  },
+  email:String,
+  password:String,
   cart: {
     type: Array,
     default: [],
   },
-  isadmin: Boolean,
-  orders: {
+  orders:  {
     type: Array,
     default: [],
   },
-  contact: Number,
-  picture: String,
-});
+  contact: {
+    type: Number,
+  },
+  picture: {
+    type: String,
+  },
+}, { timestamps: true });
 
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("User", userSchema);
