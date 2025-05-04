@@ -4,12 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Scatch - Your Shopping Destination</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+        }
+        .mobile-menu.open {
+            max-height: 200px; /* Adjust based on the number of items */
+        }
+    </style>
 </head>
 
 <body class="font-['helvetica_now_display']">
-    <nav class="w-full fixed top-0 left-0 px-5 py-3">
-        <h3 class="text-xl">Scatch</h3>
+    <nav class="w-full fixed top-0 left-0 px-5 py-3 flex justify-between items-center bg-white shadow z-10">
+        <h3 class="text-xl font-bold flex-grow">Scatch</h3>
+       
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true %>
+
+        <div class="hidden md:flex space-x-6 ml-4">
+            <% if (loggedin) { %>
+                <a href="/shop" class="text-gray-700 hover:text-blue-500 font-medium">Shop</a>
+                <a href="/cart" class="text-gray-700 hover:text-blue-500 font-medium">Cart</a>
+                <a href="/my-account" class="text-gray-700 hover:text-blue-500 font-medium">My Account</a>
+                <a href="/users/logout" class="text-gray-700 hover:text-blue-500 font-medium">Logout</a>
+            <% } else { %>
+                <a href="/" class="text-gray-700 hover:text-blue-500 font-medium">-</a>
+             
+            <% } %>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
     </nav>
+
+    <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true %>
+
+    <% if (loggedin) { %>
+    <div id="mobile-menu" class="mt-10 mobile-menu md:hidden z-1000">
+        <a href="/shop" class="block px-4 pt-10 py-2 text-gray-700 hover:bg-gray-200">Shop</a>
+        <a href="/cart" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Cart</a>
+        <a href="/my-account" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">My Account</a>
+        <a href="/users/logout" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Logout</a>
+    </div>
+    <% } %>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+    </script>

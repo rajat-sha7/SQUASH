@@ -47,7 +47,7 @@ const loginUser = async (req, res) => {
     const token = generateToken(existingUser);
     res.cookie("token", token);
     req.flash('success', 'Login successful');
-    res.render('shop'); // Redirect to the home page or appropriate page
+    res.redirect('/shop'); // Redirect to the home page or appropriate page
   } catch (err) {
     req.flash('error', err.message);
     res.redirect('/'); // Redirect to the login page or appropriate page

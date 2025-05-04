@@ -38,12 +38,20 @@
                             <div>
                                 <h3 class="text-lg font-semibold mb-2">Panel Details</h3>
                                 <div class="grid grid-cols-2 gap-4">
-                                    <input name="bgcolor" type="text" placeholder="Background Color"
-                                        class="border p-2 rounded w-full">
-                                    <input name="panelcolor" type="text" placeholder="Panel Color"
-                                        class="border p-2 rounded w-full">
-                                    <input name="textcolor" type="text" placeholder="Text Color"
-                                        class="border p-2 rounded w-full">
+                                    <div class="flex flex-col gap-4">
+                                        <div class="relative mb-4">
+                                            <label for="bgcolor" class="block mb-1 font-medium text-gray-700">Select Background Color</label>
+                                            <input id="bgcolor" name="bgcolor" type="color" class="appearance-none w-full h-12 border rounded-lg cursor-pointer shadow-md" value="#FFFFFF">
+                                        </div>
+                                        <div class="relative mb-4">
+                                            <label for="panelcolor" class="block mb-1 font-medium text-gray-700">Select Panel Color</label>
+                                            <input id="panelcolor" name="panelcolor" type="color" class="appearance-none w-full h-12 border rounded-lg cursor-pointer shadow-md" value="#FFFFFF">
+                                        </div>
+                                        <div class="relative mb-4">
+                                            <label for="textcolor" class="block mb-1 font-medium text-gray-700">Select Text Color</label>
+                                            <input id="textcolor" name="textcolor" type="color" class="appearance-none w-full h-12 border rounded-lg cursor-pointer shadow-md" value="#FFFFFF">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <input class="px-5 py-2 rounded mt-3 bg-blue-500 text-white" type="submit"
