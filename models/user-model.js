@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
   password:String,
   cart: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'products',
+    ref: 'product', // Corrected reference to match the model name
   }],
   orders:  {
     type: Array,

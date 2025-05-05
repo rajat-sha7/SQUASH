@@ -26,10 +26,10 @@ router.get("/logout", isLoggedIn, (req, res) => {
 });
 
 router.get("/cart", isLoggedIn, async (req, res) => {
-  let user = await userModel.findOne({ email: req.user.email });
-  // let success = req.flash("success")
-  console.log(user)
-  // res.render('cart', {user})
+  let user = await userModel.findOne({ email: req.user.email }).populate('cart')
+  let success = req.flash("success")
+
+  res.render('cart', {user})
 });
 
 
